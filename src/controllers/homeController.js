@@ -1,23 +1,23 @@
-const signInFunc = require('../models/signIn.js')
+const signUpFunc = require('../models/signUp.js')
 
 const getHomePage = (req, res) => {
     res.render('homePage.ejs')
 }
 
-const getSignInPage = (req, res) => {
-    res.render('signInPage.ejs')
+const getSignUpPage = (req, res) => {
+    res.render('signUpPage.ejs')
 }
 
 const getTestPage = (req, res) => {
     res.render('homePage.ejs')
 }
 
-const controllerRunSignIn = (req, res) => {
+const controllerRunSignUp = (req, res) => {
     console.log(req.body)
     const {username, password} = req.body
-    signInFunc(username, password)
+    signUpFunc(username, password)
 }
 
 module.exports = {
-    getHomePage, getSignInPage, getTestPage, controllerRunSignIn
+    getHomePage, getSignUpPage, getTestPage, controllerRunSignUp
 }
