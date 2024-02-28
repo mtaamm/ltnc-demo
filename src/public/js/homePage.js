@@ -1,10 +1,6 @@
 var loginButton = document.getElementById('loginButton')
-var signInButton = document.getElementById('signInButton')
+var signUpButton = document.getElementById('signUpButton')
 
-loginButton.addEventListener('click', ()=>{
-    alert('Login Clicked!')
-})
+loginButton.addEventListener('click', ()=>{window.open('/loginPage', '_blank')})
 
-signInButton.addEventListener('click', ()=>{
-    window.open('/signUpPage', '_blank', 'width=600,height=400,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes')
-})
+signUpButton.addEventListener('click', ()=>{window.open('/signUpPage', '_blank')})
