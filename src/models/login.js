@@ -37,10 +37,15 @@ async function checkPassword(username, password) {
 }
 
 async function loginFunc(username, password) {
-    var usernameExists = await checkUsernameExists(username)
-    if (usernameExists) {
-        var checkPassResult = await checkPassword(username, password)
-        return checkPassResult
+    if (username==''||password=='') {
+        console.log('Invalid Username or Password.')
+        return {isLogin: false, role: ''}
+    } else {
+        var usernameExists = await checkUsernameExists(username)
+        if (usernameExists) {
+            var checkPassResult = await checkPassword(username, password)
+            return checkPassResult
+        } else return {isLogin: false, role: ''}
     }
 }
 

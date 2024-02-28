@@ -13,7 +13,7 @@ function checkAdminLogin(req, res, next) {
     if (req.session.loggedIn&&req.session.role=='admin') {
         return next(); // Tiếp tục nếu đã đăng nhập
     } else {
-        res.redirect('/login'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+        res.redirect('/'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
     }
 }
 
@@ -23,7 +23,7 @@ function checkUserLogin(req, res, next) {
     if (req.session.loggedIn&&req.session.role=='user') {
         return next(); // Tiếp tục nếu đã đăng nhập
     } else {
-        res.redirect('/login'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+        res.redirect('/'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
     }
 }
 
@@ -37,10 +37,10 @@ const controllerRunSignUp = async (req, res) => {
         res.send('Success! Close this tab and Login!')
     } else if (signUpResult==='nameExisted') {
         res.send('Username already exists:(')
-    } else if (signUpResult==='invalidPass') {
-        res.send('Invalid Pass:(')
+    } else if (signUpResult==='invalidNameOrPass') {
+        res.send('Invalid Username or Password:(')
     } else if (signUpResult==='err') {
-        res.send('Username or Password invalid:(')
+        res.send('Invalid Username or Password:(')
     }
 }
 
@@ -61,7 +61,7 @@ const controllerRunLogin = async (req, res) => {
 }
 
 const logout = (req, res) => {
-    res.session.destroy();
+    req.session.destroy();
     res.send("Log out complete!")
 }
 

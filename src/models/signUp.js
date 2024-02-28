@@ -18,12 +18,15 @@ async function checkUsernameExists(username) {
 const signUpFunc = async (username, password) => {
     console.log(username, password)
     try {
-        var usernameExists = await checkUsernameExists(username);
-        if (usernameExists) {
-            console.log('Username already exists.')
-            return 'nameExisted'
+        if (username==''||password=='') {
+            console.log('Invalid Username or Password.')
+            return 'invalidNameOrPass'
         } else {
-            if (password!='') {
+            var usernameExists = await checkUsernameExists(username);
+            if (usernameExists) {
+                console.log('Username already exists.')
+                return 'nameExisted'
+            } else {
                 const data = {
                     name: username,
                     password: password,
@@ -31,9 +34,6 @@ const signUpFunc = async (username, password) => {
                 }
                 const docRef = await db.collection('users').add(data);
                 return 'success'
-            } else {
-                console.log('Invalid Password.')
-                return 'invalidPass'
             }
         }
     } catch (error) {
