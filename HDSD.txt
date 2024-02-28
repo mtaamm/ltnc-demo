@@ -1,0 +1,16 @@
+Về chạy thử web
+- nếu máy chưa có nodejs thì tải nodejs
+- tải xong mở terminal trong thư mục này chạy 'npn install' để nó cài đặt hết mấy package đang cần
+- chạy server bằng lệnh 'npm run dev' (khuyến khích), hoặc node ./src/server.js
+- mở trình duyệt truy cập localhost:3000 để tải web
+-------------------------------------------------
+-------------------------------------------------
+Về đọc hiểu và phát triển code
+-Về việc tổ chức code thì tìm hiểu thêm về mô hình MVC (Modules-Views-Controller)
+-Về firebase/firestore thì có thể xem thử cách dùng trong file 'login.js' và file 'signUp.js' để biết cách dùng cơ bản
+-....Nếu muốn viết thêm tính năng thì theo mô hình MVC ở trên mình nên
+    -Viết phần core xử lí ở thư mục 'models', mỗi chức năng làm 1 file
+    -Viết phần giao diện (bao gồm html, css, js dành cho giao diện) ở thư mục 'views'
+    -Viết phần kết nối giữa 'models' và 'views' trong thư mục 'controllers'
+    -...Có 1 vài thư mục khác tui tạo theo lúc xem video youtube nma cũng chưa xem hết cách dùng
+-....
